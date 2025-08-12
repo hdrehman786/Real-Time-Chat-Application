@@ -42,7 +42,7 @@ app.use("/message", messageRouter);
 app.use("/image",imageRouter)
 
 app.get("/",(req,res)=>{
-   res.json("The server is running perfectly")
+   res.json("The server is running on port")
 })
 
 server.listen(port, () => {
