@@ -41,7 +41,7 @@ app.use("/auth", authRouter);
 app.use("/message", messageRouter);
 app.use("/image",imageRouter)
 
-server.listen("/",(req,res)=>{
+app.get("/",(req,res)=>{
    res.json("The server is running perfectly")
 })
 
