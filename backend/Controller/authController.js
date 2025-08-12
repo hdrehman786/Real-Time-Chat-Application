@@ -90,10 +90,9 @@ export const login = async (req, res) => {
 
     const cookieOption = {
       httpOnly: true,
-      secure: process.env.NODE_ENV !== "development",
-      sameSite: "Strict",
-      // path: "/",
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      secure: true,
+      sameSite: "None",
+      path: "/",
     };
 
     res.cookie("token", token, cookieOption);
@@ -138,12 +137,12 @@ export const updateProfile = async (req, res) => {
     const file = req.file;
     const id = req.id;
 
-    if(!id){
-        return res.json({
-          message: "User not found",
-          error: true,
-          success: false,
-        })
+    if (!id) {
+      return res.json({
+        message: "User not found",
+        error: true,
+        success: false,
+      })
     }
 
     if (!file) {
@@ -197,11 +196,11 @@ export const updateProfile = async (req, res) => {
 
 export const checkAuth = async (req, res) => {
   const id = req.id;
-  if(!id){
-    return res.json({message: "User ID is not found", success: false,})
+  if (!id) {
+    return res.json({ message: "User ID is not found", success: false, })
   }
   try {
-    
+
     const user = await User.findById(id).select("-password");
     return res.json({
       message: "User is authenticated",
