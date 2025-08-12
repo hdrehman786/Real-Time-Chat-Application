@@ -40,6 +40,11 @@ const connectDB = async () => {
 app.use("/auth", authRouter);
 app.use("/message", messageRouter);
 app.use("/image",imageRouter)
+
+server.listen("/",(req,res)=>{
+   res.json("The server is running perfectly")
+})
+
 server.listen(port, () => {
   console.log(`App is running on port ${port}`);
   connectDB();
