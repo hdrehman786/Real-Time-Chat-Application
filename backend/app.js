@@ -16,7 +16,7 @@ const port = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://real-time-chat-application-lyart-six.vercel.app",
   credentials: true
 }));
 
