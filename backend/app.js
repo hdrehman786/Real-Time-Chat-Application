@@ -15,6 +15,8 @@ configDotenv();
 const port = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
 
+console.log("Mongo_URIII",MONGO_URI);
+
 app.use(cors({
   origin: "https://real-time-chat-application-lyart-six.vercel.app",
   credentials: true
@@ -30,7 +32,7 @@ app.use(express.urlencoded({ extended: true, }));
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGO_URI);
+   const connect = await mongoose.connect(MONGO_URI);
     console.log("Database connected successfully");
   } catch (error) {
     console.error("Database connection error:", error);

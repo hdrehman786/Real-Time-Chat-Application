@@ -15,14 +15,14 @@ export const register = async (req, res) => {
       });
     }
 
-    // const existingUser = await User.findOne({ email });
-    // if (existingUser) {
-    //   return res.json({
-    //     success: false,
-    //     message: "Email already exists",
-    //     error: true,
-    //   });
-    // }
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.json({
+        success: false,
+        message: "Email already exists",
+        error: true,
+      });
+    }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({
