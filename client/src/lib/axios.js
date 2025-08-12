@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosincetence = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://real-time-chat-application-server-s.vercel.app',
     withCredentials : true
 });
 
